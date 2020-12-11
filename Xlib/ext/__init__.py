@@ -35,6 +35,7 @@ __extensions__ = [
     ('RANDR', 'randr'),
     ('XFIXES', 'xfixes'),
     ('SECURITY', 'security'),
+    ('RENDER', 'render'),
     ('XInputExtension', 'xinput'),
     ('NV-CONTROL', 'nvcontrol'),
     ('DAMAGE', 'damage'),

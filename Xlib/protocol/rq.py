@@ -301,7 +301,7 @@ class Resource(Card32):
         else:
             return value
 
-    def parse_value(self, value, display):
+    def parse_value(self, value, display, rawdict = 0):
         # if not display:
         #    return value
         if value in self.codes:
@@ -345,6 +345,13 @@ class Cursor(Resource):
     cast_function = '__cursor__'
     class_name = 'cursor'
 
+class Picture(Resource):
+    cast_function = '__picture__'
+    class_name = 'picture'
+
+class GlyphSet(Resource):
+    cast_function = '__glyphset__'
+    class_name = 'glyphset'
 
 class Bool(ValueField):
     structvalues = 1
@@ -600,8 +607,8 @@ class Object(ValueField):
     def parse_binary_value(self, data, display, length, format):
         return self.type.parse_binary(data, display)
 
-    def parse_value(self, val, display):
-        return self.type.parse_value(val, display)
+    def parse_value(self, val, display, rawdict = 0):
+        return self.type.parse_value(val, display, rawdict=rawdict)
 
     def pack_value(self, val):
         return self.type.pack_value(val)
